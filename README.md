@@ -1,4 +1,4 @@
-# env
+# env [![Build Status](https://travis-ci.com/flavioheleno/env.svg?branch=master)](https://travis-ci.com/flavioheleno/env)
 Handle environment variables like a breeze.
 
 ## Install with composer
