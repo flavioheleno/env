@@ -1,27 +1,29 @@
-
 {
-    "name": "flavioheleno/env",
-    "description": "Handle all sorts of environment variable values with ease",
-    "license": "mit",
-    "type": "library",
-    "keywords": ["environment", "env", "envvar", "environment variable", "env variable", "env var"],
-    "authors": [
-        {
-            "name": "Flavio Heleno",
-            "email": "flaviohbatista@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Env\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Test\\": "test/"
-        }
-    },
-    "require": {
-        "php": ">=7.2"
+  "name": "flavioheleno/env",
+  "description": "Handle environment variables like a breeze.",
+  "license": "mit",
+  "type": "library",
+  "keywords": ["environment", "env", "envvar", "environment variable", "env variable", "env var"],
+  "authors": [
+    {
+      "name": "Flavio Heleno",
+      "email": "flaviohbatista@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Env\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "test/"
+    }
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
 }

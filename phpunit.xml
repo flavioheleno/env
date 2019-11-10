@@ -1,0 +1,10 @@
+<phpunit bootstrap="vendor/autoload.php" colors="true" processIsolation="true">
+  <testsuites>
+    <testsuite name="read">
+      <file>test/ReadTest.php</file>
+    </testsuite>
+    <testsuite name="required">
+      <file>test/RequiredTest.php</file>
+    </testsuite>
+  </testsuites>
+</phpunit>
