@@ -10,7 +10,7 @@ class Read {
   /**
    * Stores environment variables.
    *
-   * @var array
+   * @var array<string,mixed>
    */
   private static $env = [];
 
@@ -19,7 +19,7 @@ class Read {
    *
    * @return void
    */
-  private static function loadEnv() : void {
+  private static function loadEnv(): void {
     if (empty(self::$env)) {
       self::$env = getenv();
     }
@@ -30,7 +30,7 @@ class Read {
    *
    * @return void
    */
-  public static function updateEnv() : void {
+  public static function updateEnv(): void {
     self::$env = [];
     self::loadEnv();
   }
@@ -43,24 +43,24 @@ class Read {
    *
    * @return string
    */
-  public static function asString(string $varName, string $default = '') : string {
+  public static function asString(string $varName, string $default = ''): string {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       return $default;
     }
 
-    return (string) self::$env[$varName];
+    return (string)self::$env[$varName];
   }
 
   /**
    * Return an environment variable value as an array.
    *
    * @param string $varName
-   * @param array  $default
-   *
-   * @return array
+   * @param array<int,mixed>  $default
+   *<
+   * @return array<int,mixed>
    */
-  public static function asArray(string $varName, array $default = []) : array {
+  public static function asArray(string $varName, array $default = []): array {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       return $default;
@@ -77,13 +77,13 @@ class Read {
    *
    * @return int
    */
-  public static function asInteger(string $varName, int $default = 0) : int {
+  public static function asInteger(string $varName, int $default = 0): int {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       return $default;
     }
 
-    return (int) self::$env[$varName];
+    return (int)self::$env[$varName];
   }
 
   /**
@@ -94,13 +94,13 @@ class Read {
    *
    * @return float
    */
-  public static function asFloat(string $varName, float $default = 0.0) : float {
+  public static function asFloat(string $varName, float $default = 0.0): float {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       return $default;
     }
 
-    return (float) self::$env[$varName];
+    return (float)self::$env[$varName];
   }
 
   /**
@@ -111,13 +111,13 @@ class Read {
    *
    * @return bool
    */
-  public static function asBool(string $varName, bool $default = false) : bool {
+  public static function asBool(string $varName, bool $default = false): bool {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       return $default;
     }
 
-    return (bool) self::$env[$varName];
+    return (bool)self::$env[$varName];
   }
 
   /**

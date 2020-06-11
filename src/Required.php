@@ -12,7 +12,7 @@ class Required {
   /**
    * Stores environment variables.
    *
-   * @var array
+   * @var array<string,mixed>
    */
   private static $env = [];
 
@@ -21,7 +21,7 @@ class Required {
    *
    * @return void
    */
-  private static function loadEnv() : void {
+  private static function loadEnv(): void {
     if (empty(self::$env)) {
       self::$env = getenv();
     }
@@ -32,7 +32,7 @@ class Required {
    *
    * @return void
    */
-  public static function updateEnv() : void {
+  public static function updateEnv(): void {
     self::$env = [];
     self::loadEnv();
   }
@@ -44,13 +44,13 @@ class Required {
    *
    * @return string
    */
-  public static function asString(string $varName) : string {
+  public static function asString(string $varName): string {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       throw new RuntimeException(sprintf('Env\Require::asString: "%s" is not set', $varName));
     }
 
-    return (string) self::$env[$varName];
+    return (string)self::$env[$varName];
   }
 
   /**
@@ -58,9 +58,9 @@ class Required {
    *
    * @param string $varName
    *
-   * @return array
+   * @return array<int,mixed>
    */
-  public static function asArray(string $varName) : array {
+  public static function asArray(string $varName): array {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       throw new RuntimeException(sprintf('Env\Require::asArray: "%s" is not set', $varName));
@@ -76,13 +76,13 @@ class Required {
    *
    * @return int
    */
-  public static function asInteger(string $varName) : int {
+  public static function asInteger(string $varName): int {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       throw new RuntimeException(sprintf('Env\Require::asInteger: "%s" is not set', $varName));
     }
 
-    return (int) self::$env[$varName];
+    return (int)self::$env[$varName];
   }
 
   /**
@@ -92,13 +92,13 @@ class Required {
    *
    * @return float
    */
-  public static function asFloat(string $varName) : float {
+  public static function asFloat(string $varName): float {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       throw new RuntimeException(sprintf('Env\Require::asFloat: "%s" is not set', $varName));
     }
 
-    return (float) self::$env[$varName];
+    return (float)self::$env[$varName];
   }
 
   /**
@@ -108,13 +108,13 @@ class Required {
    *
    * @return bool
    */
-  public static function asBool(string $varName) : bool {
+  public static function asBool(string $varName): bool {
     self::loadEnv();
     if (isset(self::$env[$varName]) === false) {
       throw new RuntimeException(sprintf('Env\Require::asBool: "%s" is not set', $varName));
     }
 
-    return (bool) self::$env[$varName];
+    return (bool)self::$env[$varName];
   }
 
   /**
