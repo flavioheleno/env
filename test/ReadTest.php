@@ -3,27 +3,17 @@ declare(strict_types=1);
 
 namespace Test;
 
+use Env\Loader;
 use Env\Read;
 use PHPUnit\Framework\TestCase;
 
 final class ReadTest extends TestCase {
-  public function testUpdateEnv(): void {
-    $val = Read::asString('testUpdate', 'defaultVal');
-    $this->assertSame('defaultVal', $val);
-
-    putenv('testUpdate=updatedVal');
-    Read::updateEnv();
-
-    $val = Read::asString('testUpdate', 'defaultVal');
-    $this->assertSame('updatedVal', $val);
-  }
-
   public function testReadAsStringDefaultValue(): void {
     $val = Read::asString('testAsString', 'defaultVal');
     $this->assertSame('defaultVal', $val);
   }
 
-  public function testReadAsString(): void {
+  public function testReadAsStringGetenv(): void {
     putenv('testAsString=myVal');
 
     $val = Read::asString('testAsString', 'defaultVal');

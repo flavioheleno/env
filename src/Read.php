@@ -6,35 +6,7 @@ namespace Env;
 /**
  * Environment Variable Reader.
  */
-class Read {
-  /**
-   * Stores environment variables.
-   *
-   * @var array<string,mixed>
-   */
-  private static $env = [];
-
-  /**
-   * Loads environment variables into a static variable to be used by the class.
-   *
-   * @return void
-   */
-  private static function loadEnv(): void {
-    if (empty(self::$env)) {
-      self::$env = getenv();
-    }
-  }
-
-  /**
-   * Updates environment variables local copy.
-   *
-   * @return void
-   */
-  public static function updateEnv(): void {
-    self::$env = [];
-    self::loadEnv();
-  }
-
+class Read extends Loader {
   /**
    * Return an environment variable value as a string.
    *

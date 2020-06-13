@@ -8,18 +8,6 @@ use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
 final class RequiredTest extends TestCase {
-  public function testUpdateEnv(): void {
-    $this->expectException(RuntimeException::class);
-    $this->expectExceptionMessage('"testUpdate" is not set');
-    $val = Required::asString('testUpdate');
-
-    putenv('testUpdate=updatedVal');
-    Required::updateEnv();
-
-    $val = Required::asString('testUpdate');
-    $this->assertSame('updatedVal', $val);
-  }
-
   public function testRequiredAsStringUnsetValue(): void {
     $this->expectException(RuntimeException::class);
     $this->expectExceptionMessage('"testAsString" is not set');
