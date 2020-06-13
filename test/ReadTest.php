@@ -13,7 +13,7 @@ final class ReadTest extends TestCase {
     $this->assertSame('defaultVal', $val);
   }
 
-  public function testReadAsStringGetenv(): void {
+  public function testReadAsString(): void {
     putenv('testAsString=myVal');
 
     $val = Read::asString('testAsString', 'defaultVal');
